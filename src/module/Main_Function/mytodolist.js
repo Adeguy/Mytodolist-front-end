@@ -23,8 +23,7 @@ class Calendar_Tasks extends React.Component {
         const token = localStorage.getItem('token');
         const {selectedDate, priority, todoText, events} = this.state;
         const updatedEvents = {...events};//拷贝
-
-        axios.get('http://localhost:5000/getEvent', {
+        axios.get('http://118.31.245.202/getEvent', {
             headers: {
                 'Authorization': `Bearer ${token}`
             }
@@ -95,7 +94,7 @@ class Calendar_Tasks extends React.Component {
         const new_event=newEvent
         console.log('newevent:',newEvent)
         updatedEvents[date].push(new_event);//push添加
-        axios.post('http://localhost:5000/newEvent',
+        axios.post('http://118.31.245.202/newEvent',
             {
                 headers: {
                     'Authorization': `Bearer ${token}`
@@ -144,7 +143,7 @@ class Calendar_Tasks extends React.Component {
         }
         updatedDeleteEvents[date].push(deletedEvent);
         console.log('deletedEvent:',deletedEvent)
-        axios.post('http://localhost:5000/delete', deletedEvent)
+        axios.post('http://118.31.245.202/delete', deletedEvent)
             .then(function (response) {
                 console.log(response);
 

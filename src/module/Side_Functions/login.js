@@ -27,7 +27,7 @@ class Login extends React.Component {
             padding: CryptoJS.pad.Pkcs7, // 使用 PKCS7 填充方式
         }).toString();
         await  axios
-            .post('http://localhost:5000/register', { encrypted })
+            .post('http://118.31.245.202/register', { encrypted })
             .then((response) => {
                 if (response.status === 200 && response.data.token) {
                     localStorage.setItem('token', response.data.token);
@@ -55,7 +55,7 @@ class Login extends React.Component {
             padding: CryptoJS.pad.Pkcs7, // 使用 PKCS7 填充方式
         }).toString();
         axios
-            .post('http://localhost:5000/login', { encrypted })
+            .post('http://118.31.245.202/login', { encrypted })
             .then((response) => {
                 console.log(response.data);
                 if (response.status === 200 && response.data.token) {
